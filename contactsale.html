@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaguar — Contact Sales</title>
+  <style>
+    body { margin:0; font-family:'Poppins',sans-serif; background:#111; color:#fff; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#000; }
+    header h1 { color:#e5c07b; }
+    nav a { margin:0 1rem; color:#fff; text-decoration:none; font-weight:500; }
+    nav a:hover { color:#e5c07b; }
+
+    .sales-section { max-width:700px; margin:3rem auto; background:#1c1c1c; padding:2rem; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.6); }
+    .sales-section h2 { text-align:center; color:#e5c07b; margin-bottom:1rem; }
+    form { display:flex; flex-direction:column; }
+    input, select { margin:0.5rem 0; padding:0.8rem; border:none; border-radius:5px; font-size:1rem; background:#222; color:#fff; }
+    textarea { min-height:120px; margin-top:0.5rem; padding:0.8rem; border-radius:5px; border:none; background:#222; color:#fff; }
+    button { background:#e5c07b; border:none; padding:0.8rem; border-radius:5px; font-weight:bold; cursor:pointer; margin-top:1rem; }
+    button:hover { background:#c9a33d; }
+
+    footer { text-align:center; padding:1rem; background:#000; margin-top:3rem; color:#aaa; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jaguar</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="models.html">Models</a>
+      <a href="racing.html">Racing</a>
+      <a href="booking.html">Booking</a>
+      <a href="contact.html">Contact</a>
+      <a href="signin.html">SignIn</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </header>
+
+  <section class="sales-section">
+    <h2>Contact Sales</h2>
+    <form id="salesForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <select id="interest" required>
+        <option value="">Select Model of Interest</option>
+        <option value="f-type">Jaguar F-Type</option>
+        <option value="i-pace">Jaguar I-Pace</option>
+        <option value="xf">Jaguar XF</option>
+        <option value="f-pace">Jaguar F-Pace</option>
+        <option value="i-type6">Jaguar I-TYPE 6</option>
+      </select>
+      <textarea id="message" placeholder="Additional Requests / Questions"></textarea>
+      <button type="submit">Submit Inquiry</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Jaguar. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('salesForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! Our sales team will contact you shortly.');
+      form.reset();
+    });
+  </script>
+</body>
+</html>

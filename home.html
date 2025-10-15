@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jaguar Showcase — I‑TYPE 6</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0b; /* deep neutral */
+      --panel:#0f1720;
+      --muted:#9aa4ae;
+      --accent:#d4af37; /* subtle premium gold */
+      --glass: rgba(255,255,255,0.04);
+      --max-width:1200px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#030305 0%, #071018 100%); color:#e7eef6}
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+
+    /* header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:48px;width:auto;display:block}
+    .brand h1{font-family:'Playfair Display';margin:0;font-size:20px;letter-spacing:4px}
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:20px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{color:#fff;background:var(--glass)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;margin-top:18px}
+    .hero .intro{padding:22px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;backdrop-filter:blur(6px)}
+    .eyebrow{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+    .intro h2{margin:0 0 12px 0;font-size:36px;line-height:1.02}
+    .intro p{margin:0;color:var(--muted);font-size:15px}
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{border:1px solid rgba(255,255,255,0.08);padding:10px 16px;border-radius:10px;background:transparent;color:#fff;font-weight:600;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent), #f0c96b);color:#081017;border:none}
+
+    /* hero image panel */
+    .panel{border-radius:14px;overflow:hidden;background:#061017;padding:12px}
+    .panel img{display:block;width:100%;height:100%;object-fit:cover}
+
+    /* models grid */
+    .models{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    .card h3{margin:8px 0 4px 0;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+
+    /* feedback */
+    .feedback{margin-top:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;display:flex;gap:20px;align-items:flex-start}
+    .feedback form{flex:1;display:flex;flex-direction:column;gap:10px}
+    .feedback input,.feedback textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:#e7eef6;font-size:14px}
+    .feedback textarea{min-height:110px;resize:vertical}
+    .feedback .aside{width:300px}
+    .feedback small{color:var(--muted)}
+
+    /* popup modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,10,0.6);z-index:40}
+    .modal.open{display:flex}
+    .modal .box{background:var(--panel);padding:22px;border-radius:12px;min-width:320px;text-align:center}
+
+    footer{margin:36px 0 18px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.models{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}.feedback{flex-direction:column}.feedback .aside{width:100%}}
+    @media (max-width:520px){.models{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}}
+
+    /* subtle marquee replacement */
+    .marquee{overflow:hidden;white-space:nowrap}
+    .marquee h2{display:inline-block;padding-left:100%;animation:slide 12s linear infinite;font-family:'Playfair Display';font-size:22px;letter-spacing:8px}
+    @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="https://blis.com/wp-content/uploads/2019/09/JaguarLogo.png" alt="Jaguar logo">
+        <h1>JAGUAR</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="racing.html">Racing</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="signin.html">SignIn</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero area -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="intro">
+        <div class="eyebrow">Electric Performance</div>
+        <h2 id="hero-title">Jaguar I‑TYPE 6 — Pure, Race‑Born Power</h2>
+        <p>The Jaguar I‑TYPE 6 is Jaguar's most advanced and efficient all‑electric race car, developed for ABB FIA Formula E competition. Lightweight, aerodynamic and engineered for peak torque delivery out of the corners.</p>
+        <div class="cta">
+          <a href="booktest.html"><button class="btn primary" onclick="location.href='#booking'">Book a Test Drive</button></a>
+          <a href="contactsale.html"><button  class="btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Sales</button></a>
+        </div>
+      </div>
+
+      <div class="panel" aria-hidden="false">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsN7VlmMckrOipm56gYGkfYJHzhVSiKgElJQ&s" alt="Jaguar I-TYPE 6 main">
+      </div>
+    </section>4
+
+    <!-- Models -->
+    <section id="models" class="models" aria-label="Jaguar models">
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGLlfUXZoO6RBzvmCPxDaaV9VS6rRLA-tROQ&s" alt="I-TYPE 6 front">
+        <h3>I‑TYPE 6</h3>
+        <p>All‑electric race car tuned for precision and efficiency on track.</p>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB_OsDQ4iZYydMCJRFUFrPlMQtBqqmZK18yw&s" alt="I‑TYPE 6 side">
+        <h3>Track Variant</h3>
+        <p>Optimised aero and battery management for endurance events.</p>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQDdJlToJAMhX_8Lt37AxrsAorrtwVZMOKog&s" alt="I‑TYPE 6 detail">
+        <h3>Special Edition</h3>
+        <p>Limited run with bespoke livery and performance upgrades.</p>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <div class="gallery" aria-label="Gallery">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGLlfUXZoO6RBzvmCPxDaaV9VS6rRLA-tROQ&s" alt="gallery 1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB_OsDQ4iZYydMCJRFUFrPlMQtBqqmZK18yw&s" alt="gallery 2">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQDdJlToJAMhX_8Lt37AxrsAorrtwVZMOKog&s" alt="gallery 3">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsN7VlmMckrOipm56gYGkfYJHzhVSiKgElJQ&s" alt="gallery 4">
+    </div>
+
+    <!-- Feedback / Contact -->
+    <section id="contact" class="feedback" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title">Give Us Your Feedback</h2>
+        <p style="color:var(--muted);margin-top:6px">We read every message — tell us what you loved or what we can improve.</p>
+      </div>
+
+        
+<a href="feedback.html"><button class="btn primary" onclick="location.href='feedback.html'>FeedBack</button></a>
+ 
+
+      <aside class='aside' style ="text-align:right">
+        <small style ="color: #0b0b0b;">Prefer a call? Leave your number in the message and we'll get back to you.</small>
+      </aside>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Jaguar Showcase — Concept Page. All rights reserved.
+    </footer>
+  </div>
+
+  <!-- accessible modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="box">
+      <h3 id="modal-title">Thank you</h3>
+      <p id="modal-message">Your feedback has been received. We appreciate your time.</p>
+      <div style="margin-top:12px;display:flex;justify-content:center;gap:10px">
+        <button class="btn primary" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // Basic front-end validation
+      if(!name||!email||!message){
+        alert('Please fill all fields');
+        return;
+      }
+
+      // Normally here you'd send data to a server (fetch/ajax). For this demo we'll show a modal.
+      openModal();
+      // clear form
+      document.getElementById('feedbackForm').reset();
+
+      // If you want to actually send the data, add fetch('/api/feedback', {method:'POST', body: JSON.stringify({name,email,message})}) ...
+    }
+
+    function openModal(){
+      const modal = document.getElementById('modal');
+      modal.classList.add('open');
+      // trap focus (basic)
+      const closeBtn = modal.querySelector('button');
+      closeBtn.focus();
+    }
+    function closeModal(){
+      const modal = document.getElementById('modal');
+      modal.classList.remove('open');
+    }
+
+    // close on background click
+    document.getElementById('modal').addEventListener('click', function(e){
+      if(e.target === this) closeModal();
+    });
+
+    // close on ESC
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
